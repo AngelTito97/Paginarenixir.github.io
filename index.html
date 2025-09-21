@@ -41,7 +41,7 @@
 
         .main-title {
             font-size: clamp(2rem, 8vw, 4rem);
-            color: #db6719c9;
+            color: #2d5016;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
             margin-bottom: 10px;
             animation: bounce 2s ease-in-out infinite;
@@ -61,16 +61,42 @@
         }
 
         .renixir-logo {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 15px 30px;
-            border-radius: 50px;
-            font-size: clamp(1.5rem, 5vw, 2.5rem);
-            font-weight: bold;
             margin: 20px auto;
-            display: inline-block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            padding: 15px 30px;
+            border-radius: 25px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.2);
             animation: pulse 3s ease-in-out infinite;
+            max-width: 400px;
+        }
+
+        .renixir-logo img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #667eea;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            animation: rotate 10s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .renixir-text {
+            font-size: clamp(1.5rem, 5vw, 2.5rem);
+            font-weight: bold;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             letter-spacing: 3px;
         }
 
@@ -247,7 +273,42 @@
             .message-section { padding: 20px; margin: 20px 10px; }
             .flowers-container { grid-template-columns: repeat(2, 1fr); gap: 15px; }
             .flower { width: 100px; height: 100px; }
-            .renixir-logo { padding: 10px 20px; margin: 15px auto; }
+            .renixir-logo { 
+                margin: 15px auto; 
+                max-width: 300px;
+            }
+            .renixir-logo img {
+                width: 50px;
+                height: 50px;
+            }
+            .renixir-text {
+                font-size: clamp(1.2rem, 4vw, 2rem) !important;
+            }
+        }
+
+        .footer-credit {
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 20px 20px 0 0;
+            position: relative;
+            z-index: 10;
+        }
+
+        .footer-credit p {
+            font-size: clamp(1rem, 3vw, 1.3rem);
+            color: #4a7c59;
+            font-weight: bold;
+            margin: 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            animation: sparkle 3s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { text-shadow: 1px 1px 2px rgba(0,0,0,0.1), 0 0 10px rgba(255,215,0,0.5); }
+            50% { text-shadow: 1px 1px 2px rgba(0,0,0,0.1), 0 0 20px rgba(255,215,0,0.8), 0 0 30px rgba(255,215,0,0.6); }
         }
     </style>
 </head>
@@ -257,7 +318,10 @@
     <div class="container">
         <div class="header">
             <h1 class="main-title">¡Feliz Inicio de Primavera!</h1>
-            <div class="renixir-logo">RENIXIR</div>
+            <div class="renixir-logo">
+                <img src="https://scontent-lim1-1.xx.fbcdn.net/v/t39.30808-6/510592147_758411490032997_5710485716949782826_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeGKx6Qt5VifLxfU6pw-thRS-20Z_wbmsyb7bRn_BuazJq4PhlfRWOVpOSGo3_27rhKKr9FhKbLI8Y6MjyF9SFa7&_nc_ohc=hiaTyyVULoIQ7kNvwGAwphd&_nc_oc=AdkKVjTKiJVEDAlQD4A3GM9HLWs9jl8qP_3FRv1yc57QCdq-UJwVih8JD99IyK1gzZ5_Co7IhpkzSSiNwQ_uM0SI&_nc_zt=23&_nc_ht=scontent-lim1-1.xx&_nc_gid=6a_fv_w3sq2v3CY1wxYJRA&oh=00_AfadHA5DY6GUsQZvpQJYxrLG_QKMqaSZDKbHYBibuy40AQ&oe=68D5F7D3" alt="Logo RENIXIR">
+                <div class="renixir-text">RENIXIR</div>
+            </div>
             <p class="subtitle">Floreciendo juntos en esta nueva estación</p>
         </div>
 
@@ -324,7 +388,7 @@
             </div>
             
             <div class="renixir-info">
-                <h3>    Sobre RENIXIR   </h3>
+                <h3>🌟 Sobre RENIXIR 🌟</h3>
                 <p>
                     RENIXIR es más que una agrupación, somos una familia unida por la pasión, la creatividad y el deseo de marcar la diferencia. Como las flores que brotan en primavera, cada miembro de RENIXIR aporta su color único para crear un jardín hermoso y diverso. Juntos crecemos, nos inspiramos y transformamos sueños en realidad.
                 </p>
@@ -335,6 +399,10 @@
                 <button class="interactive-btn" onclick="createFireworks()">🎆 ¡Celebrar!</button>
             </div>
         </div>
+    </div>
+
+    <div class="footer-credit">
+        <p>💫 Creado con amor por Angel 💫</p>
     </div>
 
     <script>
